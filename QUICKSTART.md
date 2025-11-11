@@ -2,6 +2,8 @@
 
 Hướng dẫn nhanh để chạy ứng dụng nhận dạng objects real-time từ webcam.
 
+> **💡 Mới với YOLO?** Đọc [YOLO_OVERVIEW.md](YOLO_OVERVIEW.md) để hiểu YOLO là gì và tại sao nó mạnh mẽ!
+
 ## ⚡ Cách nhanh nhất (3 bước)
 
 ### 1️⃣ Download và convert model (chỉ cần làm 1 lần)

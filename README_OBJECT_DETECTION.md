@@ -2,6 +2,14 @@
 
 Ứng dụng nhận dạng đối tượng (object detection) thời gian thực sử dụng YOLOv8, OpenVINO và webcam.
 
+> **📚 Muốn tìm hiểu sâu về YOLO?**
+> Xem [YOLO_OVERVIEW.md](YOLO_OVERVIEW.md) để hiểu rõ hơn về:
+> - YOLO là gì và cách hoạt động
+> - So sánh các phiên bản YOLO (v1-v8)
+> - Performance benchmarks và best practices
+> - Ứng dụng thực tế của YOLO
+> - Tại sao kết hợp YOLO với OpenVINO
+
 ## Tính năng
 
 ✅ **2 chế độ hoạt động:**
