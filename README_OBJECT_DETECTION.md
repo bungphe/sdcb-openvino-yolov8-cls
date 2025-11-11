@@ -10,6 +10,13 @@
 > - Ứng dụng thực tế của YOLO
 > - Tại sao kết hợp YOLO với OpenVINO
 
+> **🐍 Prefer Python?**
+> Repository này cung cấp cả **C# (OpenVINO)** và **Python (Ultralytics)** implementations!
+> - **Python**: Xem [PYTHON_IMPLEMENTATION.md](PYTHON_IMPLEMENTATION.md) - Dễ dàng hơn, tốt cho prototyping
+> - **C#**: Tiếp tục đọc bên dưới - Nhanh hơn 3x, tốt cho production
+>
+> Script Python: `yolo_webcam_detection.py` - Chỉ cần chạy: `python yolo_webcam_detection.py`
+
 ## Tính năng
 
 ✅ **2 chế độ hoạt động:**

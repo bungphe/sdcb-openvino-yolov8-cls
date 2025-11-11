@@ -1,0 +1,14 @@
+# Python dependencies for YOLO webcam detection
+# Install with: pip install -r requirements.txt
+
+# YOLO and Computer Vision
+ultralytics>=8.0.0
+opencv-python>=4.8.0
+
+# Optional: GPU acceleration (CUDA)
+# torch>=2.0.0
+# torchvision>=0.15.0
+
+# Optional: Better performance
+# onnxruntime-gpu>=1.15.0  # For ONNX with GPU
+# onnxruntime>=1.15.0      # For ONNX with CPU

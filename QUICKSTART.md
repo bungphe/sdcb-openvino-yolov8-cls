@@ -4,7 +4,17 @@ Hướng dẫn nhanh để chạy ứng dụng nhận dạng objects real-time t
 
 > **💡 Mới với YOLO?** Đọc [YOLO_OVERVIEW.md](YOLO_OVERVIEW.md) để hiểu YOLO là gì và tại sao nó mạnh mẽ!
 
-## ⚡ Cách nhanh nhất (3 bước)
+> **🐍 Want Python instead?**
+> Chỉ 2 bước với Python:
+> ```bash
+> pip install -r requirements.txt
+> python yolo_webcam_detection.py
+> ```
+> Xem chi tiết: [PYTHON_IMPLEMENTATION.md](PYTHON_IMPLEMENTATION.md)
+
+---
+
+## ⚡ C# Quick Start (3 bước)
 
 ### 1️⃣ Download và convert model (chỉ cần làm 1 lần)
 
