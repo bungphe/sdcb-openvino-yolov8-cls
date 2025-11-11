@@ -5,11 +5,75 @@ using System.Xml.Linq;
 using System.Xml.XPath;
 using System.Diagnostics;
 using Sdcb.OpenVINO.Extensions.OpenCvSharp4;
+using YoloObjectDetection;
 
 public static class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
+        Console.WriteLine("=== YOLOv8 OpenVINO Demo ===");
+        Console.WriteLine("1. Classification Demo (static image)");
+        Console.WriteLine("2. Object Detection with Webcam (real-time)");
+        Console.Write("\nSelect option (1 or 2): ");
+
+        string? choice = Console.ReadLine();
+
+        if (choice == "2")
+        {
+            RunObjectDetectionWebcam();
+        }
+        else
+        {
+            RunClassificationDemo();
+        }
+    }
+
+    static void RunObjectDetectionWebcam()
+    {
+        Console.WriteLine("\n=== Starting Object Detection with Webcam ===");
+
+        string modelFile = @"./model/yolov8n.xml";
+        string labelsFile = @"./coco-labels.txt";
+
+        if (!File.Exists(modelFile))
+        {
+            Console.WriteLine($"\nERROR: Model file not found: {modelFile}");
+            Console.WriteLine("\nPlease convert YOLOv8 detection model:");
+            Console.WriteLine("1. Install ultralytics: pip install ultralytics");
+            Console.WriteLine("2. Download YOLOv8n: wget https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8n.pt");
+            Console.WriteLine("3. Convert to OpenVINO: yolo export model=yolov8n.pt format=openvino");
+            Console.WriteLine("4. Copy yolov8n.xml and yolov8n.bin to ./model/ folder");
+            return;
+        }
+
+        if (!File.Exists(labelsFile))
+        {
+            Console.WriteLine($"\nERROR: Labels file not found: {labelsFile}");
+            return;
+        }
+
+        try
+        {
+            using var detector = new WebcamObjectDetection(
+                modelPath: modelFile,
+                labelsPath: labelsFile,
+                confidenceThreshold: 0.25f,
+                nmsThreshold: 0.45f
+            );
+
+            detector.Run(cameraIndex: 0);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"\nERROR: {ex.Message}");
+            Console.WriteLine(ex.StackTrace);
+        }
+    }
+
+    static void RunClassificationDemo()
+    {
+        Console.WriteLine("\n=== Running Classification Demo ===");
+
         string modelFile = @"./model/yolov8n-cls.xml";
         string[] dicts = XDocument.Load(modelFile)
             .XPathSelectElement(@"/net/rt_info/model_info/labels")!.Attribute("value")!.Value
